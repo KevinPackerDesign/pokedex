@@ -2,8 +2,9 @@
   text-align: center;
 }
 .pokedex {
-  width: fit-content;
-  min-height: auto;
-  margin: 0px;
+  clear: both;
+  display: inline-block;
+  flex-direction: column;
   text-align: left;
+  padding-left: 12%;
 }

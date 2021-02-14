@@ -59,13 +59,19 @@ for (i = 0; i < pokemonList.length; i++) {
         " size(" +
         pokemonList[i].height +
         ")" +
-        " WOW... Thats a big Pokemon!!!,"
+        " WOW... Thats a big Pokemon!!!" +
+        "<br>"
     );
   }
   //this will list all the pokemon
   else {
     document.write(
-      " " + pokemonList[i].name + " size(" + pokemonList[i].height + "),"
+      " " +
+        pokemonList[i].name +
+        " size(" +
+        pokemonList[i].height +
+        ")" +
+        "<br>"
     );
   }
 }
