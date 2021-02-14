@@ -49,3 +49,23 @@ let pokemonList = [
   { name: "Venomoth", height: 1.5, type: ["bug", "poison"] },
   { name: "Diglett", height: 0.2, type: ["ground"] },
 ];
+//this will list all the names of the pokemon
+for (i = 0; i < pokemonList.length; i++) {
+  //This will show what pokemon is the largest
+  if (pokemonList[i].height > 2) {
+    document.write(
+      " " +
+        pokemonList[i].name +
+        " size(" +
+        pokemonList[i].height +
+        ")" +
+        " WOW... Thats a big Pokemon!!!,"
+    );
+  }
+  //this will list all the pokemon
+  else {
+    document.write(
+      " " + pokemonList[i].name + " size(" + pokemonList[i].height + "),"
+    );
+  }
+}
