@@ -2,9 +2,7 @@
   text-align: center;
 }
 .pokedex {
-  clear: both;
-  display: inline-block;
-  flex-direction: column;
-  text-align: left;
-  padding-left: 12%;
+  display: flexbox;
+  grid-template: auto auto auto auto;
+  grid-gap: none;
 }
