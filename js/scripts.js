@@ -52,62 +52,55 @@ let pokemonRepository = (function () {
     { name: "Venomoth", height: 1.5, type: ["bug", " poison"] },
     { name: "Diglett", height: 0.2, type: ["ground"] },
   ];
+  function add(pokemon) {
+    {
+      pokemonList.push(pokemon);
+    }
+  }
   function getAll() {
     return pokemonList;
   }
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
   return {
-    getAll: pokemonList,
     add: add,
+    getAll: getAll,
   };
 })();
 
 // add function to add new pokemon to new array
-pokemonList.push({ name: "Dugtrio", height: 0.7, type: ["ground"] });
+pokemonRepository.add({ name: "Dugtrio", height: 0.7, type: ["ground"] });
+//show pokemon in console
 console.log(pokemonRepository.getAll());
-
-//attempt add making sure only the right object can be added
-
-// pokemonRepository.add(function () {
-//   if ((pokemon = Object));
-//   add({ name: "Dugtrio", height: 0.7, type: ["Ground"] });
-// })();
-
 //loop function to show pokemon on site
-(function () {
-  getAll.forEach(function (pokemon) {
-    if (pokemon.height > 3) {
-      document.write(
-        "<p>" +
-          pokemon.name +
-          " - " +
-          " Height: " +
-          "(" +
-          pokemon.height +
-          ")" +
-          " WOW THAT IS BIG" +
-          " Type: " +
-          pokemon.type +
-          "</p>"
-      );
-    } else {
-      document.write(
-        "<p>" +
-          pokemon.name +
-          " - " +
-          " Height: " +
-          "(" +
-          pokemon.height +
-          ")" +
-          " Type: " +
-          pokemon.type +
-          "</p>"
-      );
-    }
-  });
-})();
+pokemonRepository.getAll().forEach(function (pokemon) {
+  if (pokemon.height > 3) {
+    document.write(
+      "<p>" +
+        pokemon.name +
+        " - " +
+        " Height: " +
+        "(" +
+        pokemon.height +
+        ")" +
+        " WOW THAT IS BIG" +
+        " Type: " +
+        pokemon.type +
+        "</p>"
+    );
+  } else {
+    document.write(
+      "<p>" +
+        pokemon.name +
+        " - " +
+        " Height: " +
+        "(" +
+        pokemon.height +
+        ")" +
+        " Type: " +
+        pokemon.type +
+        "</p>"
+    );
+  }
+});
 
 // previous verison of the function that will list all the names of the pokemon
 // for (i = 0; i < pokemonList.length; i++) {
