@@ -1,8 +1,43 @@
-.main {
-  text-align: center;
+ul {
+  list-style-type: none;
 }
-.pokedex {
-  display: flexbox;
-  grid-template: auto auto auto auto;
-  grid-gap: none;
+.button-container {
+  display: inline-block;
+  width: 33%;
+}
+@supports (display: grid) {
+  .button-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: none;
+  }
+  .button-container {
+    width: auto;
+    min-height: auto;
+    margin: 0px;
+    text-align: center;
+  }
+  .button-container:last-child {
+    grid-column: 3/3;
+    grid-row: 3/4;
+  }
+}
+@media all and (max-width: 500px) {
+  .button-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .button-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .button-wrap {
+    grid-gap: 0px;
+  }
+  .button-container:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
 }
