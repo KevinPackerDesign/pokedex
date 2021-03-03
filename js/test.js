@@ -1,14 +1,7 @@
-var mainTitle = document.querySelector("h1");
-console.log(mainTitle.innerText); // -> <h1></h1>
-mainTitle.innerText = "POKEDEX";
-console.log(mainTitle.innerText); // -> <h1>THIS IS EPIC</h1>
-
-// IIFE function keep array as a local object
 let pokemonRepository = (function () {
-  // pokemon list api
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  //adding a pokemon object
+
   function add(pokemon) {
     if (typeof pokemon === "object" && "name" in pokemon) {
       pokemonList.push(pokemon);
@@ -21,17 +14,17 @@ let pokemonRepository = (function () {
   }
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
-    let listPokemon = document.createElement("li");
+    let listpokemon = document.createElement("li");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
-    button.classList.add("button");
-    listPokemon.appendChild(button);
-    listPokemon.classList.add("list");
-    pokemonList.appendChild(listPokemon);
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
     button.addEventListener("click", function (event) {
       showDetails(pokemon);
     });
   }
+
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -51,6 +44,7 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
+
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -58,6 +52,7 @@ let pokemonRepository = (function () {
         return response.json();
       })
       .then(function (details) {
+        // Now we add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
@@ -66,11 +61,13 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
+
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
       console.log(item);
     });
   }
+
   return {
     add: add,
     getAll: getAll,
@@ -86,6 +83,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-//blocked this out so that it will be easier to check site, with out input popping up all the time
-// let name = prompt("please enter your name");
-// console.log(name);
