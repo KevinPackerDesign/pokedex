@@ -62,6 +62,7 @@ let pokemonRepository = (function () {
         item.imageUrl = details.sprites.other.dream_world.front_default;
         item.height = details.height;
         item.types = [];
+        item.order = details.order;
         details.types.forEach(function (pokemonType) {
           item.types.push(pokemonType.type.name);
         });
@@ -106,11 +107,15 @@ let pokemonRepository = (function () {
     let pokemonTypes = document.createElement("p");
     pokemonTypes.innerText = "Types: " + pokemon.types;
 
+    let pokemonOrder = document.createElement("p");
+    pokemonOrder.innerText = "Order: " + pokemon.order;
+
     modal.appendChild(closeButtonElement);
     modal.appendChild(pokemonName);
     modal.appendChild(pokemonImage);
     modal.appendChild(pokemonHeight);
     modal.appendChild(pokemonTypes);
+    modal.appendChild(pokemonOrder);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add("is-visible");
@@ -120,6 +125,13 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector("#modal-container");
     modalContainer.classList.remove("is-visible");
   }
+
+  window.addEventListener("keydown", (e) => {
+    let modalContainer = document.querySelector("#modal-container");
+    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+      hideModal();
+    }
+  });
 
   return {
     add: add,
