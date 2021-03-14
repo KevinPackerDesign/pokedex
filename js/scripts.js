@@ -16,9 +16,11 @@ let pokemonRepository = (function () {
       console.log("pokemon is not correct");
     }
   }
+  //gets the pokemon
   function getAll() {
     return pokemonList;
   }
+  //creats the list elements
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listPokemon = document.createElement("li");
@@ -32,6 +34,7 @@ let pokemonRepository = (function () {
       showDetails(pokemon);
     });
   }
+  //displays the pokemon
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -51,7 +54,7 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
-
+  //finds the details from the api ids them
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -71,7 +74,7 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
-
+  //shows the pokemon in the modal
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
       console.log(pokemon);
@@ -82,13 +85,13 @@ let pokemonRepository = (function () {
   function showModal(pokemon) {
     let modalContainer = document.querySelector("#modal-container");
 
-    // Clear all existing modal content
+    //deletes the modal that was open last
     modalContainer.innerHTML = "";
 
     let modal = document.createElement("div");
     modal.classList.add("modal");
 
-    // Add the new modal content
+    // uses the IDed info from the api to dispaly in the modal
     let closeButtonElement = document.createElement("button");
     closeButtonElement.classList.add("modal-close");
     closeButtonElement.innerText = "Close";
@@ -120,12 +123,12 @@ let pokemonRepository = (function () {
 
     modalContainer.classList.add("is-visible");
   }
-
+  //hides the modal
   function hideModal() {
     let modalContainer = document.querySelector("#modal-container");
     modalContainer.classList.remove("is-visible");
   }
-
+  //hides the modal when the close button or the escape button is pressed
   window.addEventListener("keydown", (e) => {
     let modalContainer = document.querySelector("#modal-container");
     if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
