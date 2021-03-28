@@ -1,30 +1,70 @@
+/* text placement and style */
+.modal-dialog {
+  text-align: center;
+}
 
 h1 {
   text-align: center;
 }
+
+h4 {
+  text-transform: capitalize;
+}
+
+p {
+  text-transform: capitalize;
+}
+
 ul {
   list-style-type: none;
   text-align: center;
 }
-.p{
+.navbar,
+.navbar-expand-lg,
+.navbar-light,
+.bg-light {
+  align-content: center;
   align-items: center;
+  align-self: center;
+  text-align: center;
 }
-.card{
+html,
+body {
+  font-family: Arial, sans-serif;
+  background-color: red;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+/* form-inline my-2 my-lg-0 {
+  align-items: right;
+} */
+.row {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+main {
+  text-align: center;
+}
+
+.card-img-top {
+  width: 75px;
+  height: 75px;
+}
+.card {
   text-align: center;
   align-items: center;
   max-width: 250px;
-  padding: auto;
-  
+  /* padding: auto; */
 }
 html,
 body {
   font-family: Arial, sans-serif;
   background-color: red;
 }
-.row{
-
-padding-left: 50px;
-padding-right: 50px;
-
-}
-
