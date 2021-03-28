@@ -88,15 +88,14 @@ let pokemonRepository = (function () {
         details.types.forEach(function (pokemonType) {
           item.types.push(pokemonType.type.name);
         });
-        details.abilities.forEach(function (pokemonAbilities){
-          item.abilities.push(pokemonAbilities.ability.name)
+        details.abilities.forEach(function (pokemonAbilities) {
+          item.abilities.push(pokemonAbilities.ability.name);
         });
       })
       .catch(function (e) {
         console.error(e);
       });
   }
-
 
   function showModal(pokemon) {
     let modalBody = $(".modal-body");
@@ -122,7 +121,9 @@ let pokemonRepository = (function () {
     // //creating element for type in modal content
     let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
     // //creating element for abilities in modal content
-    let abilitiesElement = $("<p>" + "abilities : " + pokemon.abilities + "</p>");
+    let abilitiesElement = $(
+      "<p>" + "abilities : " + pokemon.abilities + "</p>"
+    );
 
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
