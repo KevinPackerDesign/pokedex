@@ -12,64 +12,46 @@
         <title>Pokèdex</title>
         <link href="css/style.css" rel="stylesheet" type="text/css">
     </head>
-    <body class="main container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light col">
-            <a class="navbar-brand" href="#">Shut Down</a>
-            <button
+    <body class="border">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <button
                 class="navbar-toggler"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
-            >
+              >
                 <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">
-                            Home
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdown"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                        >
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input
-                            class="form-control mr-sm-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        >
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="index.html"
+                      >Home</a
+                    >
+                  </li>
+                   
+                <form class="d-flex justify-content-right">
+                  <input
+                    type="text"
+                    class="form-control me-2"
+                    id="search-pokemon"
+                    placeholder="Filter by Pokémon"
+                    aria-label="Search"
+                    onclick="filterPokemon()"
+                  />
+                </form>
+              </div>
+            </div>
+          </nav>
             <br>
             <br>
-            
             <div
                 class="modal fade"
                 id="exampleModal"
@@ -87,12 +69,10 @@
                                 data-dismiss="modal"
                                 aria-label="Close"
                             >
-                                <span aria-hidden="true">&times;</span>
+                                <!-- <span aria-hidden="true">&times;</span> -->
                             </button>
                         </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
+                        <div class="modal-body"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
@@ -101,11 +81,7 @@
             </div>
         </div>
         <div id="modal-container"></div>
-        <div
-      id="myUL"
-      class="pokemon-list row d-flex justify-content-center flex-wrap"
-    ></div>
-       
+        <div id="myUL" class="pokemon-list row d-flex justify-content-center flex-wrap "></div>
         <script src="js/promise-polyfill.js"></script>
         <script src="js/fetch.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

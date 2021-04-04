@@ -2,7 +2,7 @@
 let pokemonRepository = (function () {
   // pokemon list api
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=180";
   //adding a pokemon object
   function add(pokemon) {
     if (typeof pokemon === "object" && "name" in pokemon) {
@@ -150,6 +150,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-//blocked this out so that it will be easier to check site, with out input popping up all the time
-// let name = prompt("please enter your name");
-// console.log(name);
