@@ -25,3 +25,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: red;
 }
+.search{
+  display: inline-block;
+  position: right;
+}

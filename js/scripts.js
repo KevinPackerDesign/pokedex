@@ -2,7 +2,7 @@
 let pokemonRepository = (function () {
   // pokemon list api
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=180";
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
   //adding a pokemon object
   function add(pokemon) {
     if (typeof pokemon === "object" && "name" in pokemon) {
@@ -26,10 +26,10 @@ let pokemonRepository = (function () {
       );
       $image.attr("src", pokemon.imageUrl);
       let $cardBody = $('<div class="card-body"></div>');
-      let $cardTitle = $("<h4 class='card-title' >" + pokemon.name + "</h4>");
-      let $seeProfile = $(
-        '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">See Profile</button>'
-      );
+      let $cardTitle, $seeProfile = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">' + pokemon.name + '</button>');
+    //   let $seeProfile = $(
+        
+    //   );
 
       $row.append($card);
       //Append the image to each card
@@ -78,6 +78,7 @@ let pokemonRepository = (function () {
         return response.json();
       })
       .then(function (details) {
+        item.index = details.id;
         item.imageUrl = details.sprites.other.dream_world.front_default;
         item.imageUrlOld = details.sprites.front_default;
         item.height = details.height;
@@ -96,6 +97,10 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
+  function sort(){
+      let id = idNumber
+
+  }
 
   function showModal(pokemon) {
     let modalBody = $(".modal-body");
@@ -103,12 +108,13 @@ let pokemonRepository = (function () {
     let modalHeader = $(".modal-header");
     let $modalContainer = $("#modal-container");
     //clear existing content of the model
-    // modalHeader.empty();
+    modalHeader.empty();
     modalTitle.empty();
     modalBody.empty();
 
     //creating element for name in modal content
     let nameElement = $("<h1>" + pokemon.name + "</h1>");
+    let idNumber = $("<h2>" + "index : " + pokemon.index + "</h2>");
     // // creating img in modal content
     let imageElementFront = $('<img class="modal-img" style="width:50%">');
     imageElementFront.attr("src", pokemon.imageUrl);
@@ -120,12 +126,14 @@ let pokemonRepository = (function () {
     let weightElement = $("<p>" + "weight : " + pokemon.weight + "</p>");
     // //creating element for type in modal content
     let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
+    
     // //creating element for abilities in modal content
     let abilitiesElement = $(
       "<p>" + "abilities : " + pokemon.abilities + "</p>"
     );
 
-    modalTitle.append(nameElement);
+    modalHeader.append(nameElement);
+    modalHeader.append(idNumber)
     modalBody.append(imageElementFront);
     modalBody.append(imageElementOld);
     modalBody.append(heightElement);
@@ -133,6 +141,8 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
   }
+
+
 
   return {
     add: add,
