@@ -27,9 +27,7 @@ let pokemonRepository = (function () {
       $image.attr("src", pokemon.imageUrl);
       let $cardBody = $('<div class="card-body"></div>');
       let $cardTitle, $seeProfile = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">' + pokemon.name + '</button>');
-    //   let $seeProfile = $(
-        
-    //   );
+   
 
       $row.append($card);
       //Append the image to each card

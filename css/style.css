@@ -25,9 +25,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: red;
 }
+.pokeball{
+  height: 50px;
+  width: 50px;
+}
 
-
-.navbar-fixed {
-  left: 200px; /* just an estimate of your sidebar's width */
-  width: calc(80% - 200px);
+.navbar {
+  left: 125px; /* just an estimate of your sidebar's width */
+  width: calc(100% - 200px);
 }
