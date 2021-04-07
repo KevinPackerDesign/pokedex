@@ -25,7 +25,9 @@ body {
   font-family: Arial, sans-serif;
   background-color: red;
 }
-.search{
-  display: inline-block;
-  position: right;
+
+
+.navbar-fixed {
+  left: 200px; /* just an estimate of your sidebar's width */
+  width: calc(80% - 200px);
 }
